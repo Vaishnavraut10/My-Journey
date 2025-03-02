@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My coffee shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;0,700;0,800;0,900;1,100;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+<script>
+
+
+</script>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        /* font-weight: 400; */
+        font-style: normal;
+        text-decoration: none;
+        list-style: none;
+    }
+
+
+
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(to right, white 65%, #FFBD7F 35%);
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* header   nav-section */
+    .logo img {
+        width: 80px;
+        height: 80px;
+        margin: 20px 0 0 100px;
+    }
+
+    .nav-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-section ul {
+        display: flex;
+    }
+
+    .nav-section ul li {
+        margin: 15px 15px;
+        list-style: none;
+
+    }
+
+    .nav-section ul li a {
+        color: black;
+        font-size: 18px;
+        text-decoration: none;
+        font-weight: 400;
+    }
+
+    .nav-section ul li a:hover {
+        transition: 0.3s;
+        color: #FFBD7F;
+    }
+
+
+    input[type="text"] {
+        padding: 6px 18px;
+        border-radius: 18px;
+        border: none;
+    }
+    .search-container{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    #search{
+        position: absolute;
+       margin: 15px;
+        width: 15px;
+        height: 15px;
+    }
+    .cart{
+        margin: 0 100px 0 10px;
+    }
+
+/* Home section */
+
+    .home-section {
+        position: absolute;
+        top: 20%;
+        left: 0;
+        right: 0;
+        width: 90vw;
+        height: 70%;
+    }
+
+    .hero-text {
+        transform: translate(10%, 30%);
+        /* font-size: 4rem; */
+    }
+
+    .hero-text h2 {
+        font-size: 42px;
+        font-weight: 700;
+    }
+
+    .hero-text span {
+        color: #FFBD7F;
+        font-weight: 700;
+    }
+
+    .hero-text p {
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0 0 20px 0;
+    }
+
+    .hero-text button {
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: 20px;
+        border: 1px solid black;
+        background-color: black;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .hero-text button:hover {
+        background-color: #FFBD7F;
+
+    }
+
+    .hero-img img {
+        max-width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        right: 10%;
+        width: clamp(330px, 40%, 500px);
+
+    }
+
+   .hero-img-bg img{
+    position: absolute;
+    top: 20%;
+    left: 97%;
+    right: 0;
+   max-width: 100%;
+    height: auto;
+    transform: translate(-50%,-50%);overflow: auto;
+
+   }
+
+
+
+    @media (1024px >=width) {
+        .hero-img-bg {
+            display: none;
+        }
+
+        .hero-img img {
+            left: 68%;
+            z-index: 2;
+
+        }
+
+        .hero-text h2 {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+        }
+
+        .hero-text p {
+            font-size: clamp(0.1rem, 5vw, 1rem);
+        }
+
+        .search-box {
+            width: 260px;
+        }
+
+        .hero-text button {
+            font-size: 1rem;
+            padding: 5px, 7px;
+        }
+
+
+    }
+
+    @media(768px >=width) {}
+
+
+
+
+    .hero-text i {
+        background: #FFBD7F;
+        color: white;
+        padding: 6px;
+        border-radius: 50px;
+        margin: 0 10px;
+        font-size: 16px;
+    }
+
+
+
+    .hero-bottom {
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-container {
+        display: flex;
+        background-color: #F6EBDA;
+        justify-content: space-between;
+        width: 65%;
+        padding: 20px 120px;
+        border-radius: 40px;
+        align-items: center;
+        text-align: center;
+    }
+
+    #coldcoffee {
+        font-weight: 600;
+    }
+
+    .menu-container {
+        width: 300px;
+        height: 530px;
+        background-color: #835E4C;
+        margin: 10px;
+        padding: 20px 25px;
+        border-radius: 35px;
+        color: white;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        /* position: relative; */
+
+    }
+
+    .menu-container:hover {
+        color: #A0583C;
+        transition: all 0.5s;
+        transform: translate(0, -25px);
+        background-color: #FFBD7F;
+    }
+
+
+    .menu-container p {
+        font-weight: 400;
+    }
+
+    .menu-container h2 {
+        font-weight: 600;
+        margin: 15px 0;
+    }
+
+    .menu-container img {
+        width: 250px;
+        height: 170px;
+        border-radius: 15px;
+    }
+
+    .coldcoffee-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .order-now {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .order-now button {
+        background: #A0583C;
+        padding: 12px 28px;
+        border: none;
+        border-radius: 20px;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    .order-now h3 {
+        color: white;
+    }
+
+    .specialmenu-container h1 {
+        margin: 40px 0 20px 130px;
+    }
+
+    .specialmenu-container span {
+        text-decoration: underline #FFBD7F;
+    }
+
+    #coldcoffee {
+        margin: 40px 0 10px 130px;
+    }
+
+    .signup-container {
+        display: flex;
+        align-items: center;
+        background: #F6EBDA;
+        margin: 30px 0;
+        padding: 20px 0 20px 100px;
+
+
+    }
+
+    .special-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .special-menu {
+        padding: 10px 10px;
+        width: 300px;
+        height: 300px;
+        background: #835E4C;
+        margin: 10px;
+        border-radius: 30px;
+        color: white;
+
+    }
+
+    .special-menu:hover {
+        transition: 0.5s;
+        background-color: #FFBD7F;
+        color: #A0583C;
+    }
+
+    .special-menu h2 {
+        font-weight: 500;
+    }
+
+    .special-menu img {
+        width: 280px;
+        height: 180px;
+        border-radius: 20px;
+    }
+
+    .specialorder-now {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .special-menu button {
+        background: #A0583C;
+        border: none;
+        padding: 10px 20px;
+        font-size: 15px;
+        color: white;
+        border-radius: 18px;
+        cursor: pointer;
+    }
+
+
+    .str-img img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .signup {
+        margin: 0 0 0 40px;
+        /* font-size: ; */
+
+    }
+
+    .aboutus-container {
+        display: flex;
+        /* justify-content: center; */
+        /* justify-content: space-between; */
+        padding: 20px 0 20px 130px;
+        margin: 50px 0;
+        width: 100%;
+        height: 400px;
+        background-color: #F6EBDA;
+    }
+
+    .img img {
+        width: 350px;
+        height: 350px;
+        border-radius: 20px;
+    }
+
+    .aboutus {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 50%;
+        margin: 20px 0 0 80px;
+    }
+
+    .aboutus h1 {
+        font-weight: 600;
+        font-size: 35px;
+    }
+
+    .aboutus h2 {
+        font-weight: 500;
+    }
+
+    .aboutus p {
+        font-size: 18px;
+        font-weight: 400;
+
+    }
+
+    .aboutus button {
+        padding: 10px 10px;
+        background: #A0583C;
+        color: white;
+        border-radius: 20px;
+        border: none;
+        width: 25%;
+        font-size: 15px;
+        cursor: pointer;
+
+    }
+
+    .aboutus button:hover {
+        background-color: black;
+
+    }
+
+    .footer-class {
+        display: flex;
+        justify-content: space-around;
+        padding: 60px 0;
+    }
+
+    .footerimg img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .footerimg {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        margin: 0 50px 100px 0
+    }
+
+    .footer-nav {
+        margin: 20px 0;
+    }
+
+    .footer-nav a {
+        color: #835E4C;
+        font-size: 18px;
+
+    }
+
+    .footer-nav li {
+        margin: 10px;
+    }
+
+    .subscribe-class {
+        margin: 80px 0 0 0;
+    }
+
+    .subscribe-class button {
+        background-color: #835E4C;
+        color: white;
+        border: none;
+        padding: 15px 20px;
+        cursor: pointer;
+
+    }
+
+    .subscribe-class input {
+        background-color: #F6EBDA;
+        border-radius: 0;
+        padding: 15px;
+    }
+
+    .subscribe-class h3 {
+        font-weight: 600;
+        margin: 10px 0;
+
+    }
+
+    .social {
+        transform: translate(70%, -80%);
+        cursor: pointer;
+    }
+
+    .social img {
+        margin: 8px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <header class="nav-section">
+            <div class="logo">
+                <img id="logo-img" src="https://ashisshrestha478.github.io/Coffee_Landing_Page/assets/CoffeeLove.svg"
+                    alt="">
+            </div>
+
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Delivery</a></li>
+            </ul>
+
+            <div class="search-container">
+                <img src="assets/icons-search.png" alt="search icon" id="search">
+
+                <input type="text" id="search-input" name="search" placeholder="     cold brew">
+           
+             <div class="cart">
+                <img src="assets\icons-cart.png" alt="error" id="basket">
+            </div>
+        </div>
+
+    </div>
+    </header>
+
+    <!-- home-section -->
+    <section class="home-section">
+        <div class="hero-text">
+            <h2>The <span class="spanclass">coffee</span> you will <br> fall in <span class="color">love</span> with
+            </h2>
+            <p>Slip, savour and spread the love where <br>
+                every cup is a caffeinated hug at our cozy <br>
+                coffee haven! </p>
+            <button>Order now <i class="fa-solid fa-cart-shopping"></i></button>
+        </div>
+        <div class="hero-img">
+            <img id="hero-img" src="https://ashisshrestha478.github.io/Coffee_Landing_Page/assets/coffee-image2.png"
+                alt="">
+        </div>
+
+        <div class="hero-img-bg">
+            <img id="hero-img-bg" src="assets\hero-coffee-beans.png" alt="">
+        </div>
+    </section>
+
+    <div class="hero-bottom">
+        <div class="hero-container">
+            <div class="items"><img src="https://ashisshrestha478.github.io/Coffee_Landing_Page/assets/hot-coffee.png"
+                    alt="">
+                <h3>HOT COFFEE</h3>
+            </div>
+            <div class="items"><img src="https://ashisshrestha478.github.io/Coffee_Landing_Page/assets/cold-coffee.png"
+                    alt="">
+                <H3>COLD COFFEE</H3>
+            </div>
+            <div class="items"><img src="https://ashisshrestha478.github.io/Coffee_Landing_Page/assets/tea.png" alt="">
+                <H3>TEA</H3>
+            </div>
+            <div class="items"><img src="https://ashisshrestha478.github.io/Coffee_Landing_Page/assets/dessert.png"
+                    alt="">
+                <h3>DESERT</h3>
+            </div>
+        </div>
+    </div>
+    <h1 id="coldcoffee">Cold Coffee</h1>
+    <div class="coldcoffee-container">
+
+        <div class="menu-container">
+            <div class="coldcoffee-menu"><img src="assets\menu_item_1.png" alt="">
+            </div>
+            <h2>Caramel Frappe</h2>
+            <p>A delightful and indulgent icy beverage blending rich coffee, milk, ice, and sweet caramel syrup,
+                creating a smooth and satisfying treat with a perfect harmony of caffeine and sweetness.</p>
+            <div class="order-now">
+                <h3>$8.61</h3>
+                <button>Order now</button>
+            </div>
+
+        </div>
+        <div class="menu-container">
+            <div class="coldcoffee-menu"><img src="assets\menu_item_2.png" alt="">
+            </div>
+            <h2>Macchiato</h2>
+            <p>An espresso-based coffee characterized by a perfect balance of bold, concetrated espresso and a touch of
+                velvety steamed milk, creating a nuanced and flavorful experience</p>
+            <div class="order-now">
+                <h3>$7.60</h3>
+                <button>Order now</button>
+            </div>
+
+
+        </div>
+        <div class="menu-container">
+            <div class="coldcoffee-menu"><img src="assets\menu_item_3.png" alt="">
+            </div>
+            <h2>Affogato</h2>
+            <p>Delectable italian beverage featruing a scoop of creamy vanilla gelato or ice cream "drowned" or
+                "affogato" in a shot of hot espresso, creating a delightful contrast of temperatures and flavors.</p>
+            <div class="order-now">
+                <h3>$7.20</h3>
+                <button>Order now</button>
+            </div>
+
+        </div>
+        <div class="menu-container">
+            <div class="coldcoffee-menu"><img src="assets\menu_item_4.png" alt="">
+            </div>
+            <h2>Cold Brew</h2>
+            <p>Smooth and concentrated coffee beverage crafted by steeping coarsely ground coffee beans in cold water
+                for an extended periods, resulting in a refreshing and less acidic brew that can be enjoyed .</p>
+            <div class="order-now">
+                <h3>$8.60</h3>
+                <button>Order now</button>
+            </div>
+
+        </div>
+    </div>
+    <div class="signup-container">
+        <div class="str-img"><img src="assets\star-icon.png" alt=""></div>
+        <div class="signup">
+            <h1>Sign up to our coffee reward program!</h1>
+            <h3>Learn More <i class="fa-solid fa-arrow-right"></i></h3>
+
+        </div>
+    </div>
+
+    <section class="specialmenu-container">
+        <h1>Special menu<span> for you</span></h1>
+        <div class="special-container">
+            <div class="special-menu"><img src="assets\menu_item_2.png" alt="">
+                <h2>Macchiato</h2>
+                <div class="specialorder-now">
+                    <h3>$8.60</h3>
+                    <button>Order now</button>
+                </div>
+            </div>
+
+            <div class="special-menu"><img src="assets\menu_item_1.png" alt="">
+                <h2>Caramel Farappe</h2>
+                <div class="specialorder-now">
+                    <h3>$5.90</h3>
+                    <button>Order now</button>
+                </div>
+            </div>
+
+            <div class="special-menu"><img src="assets\menu_item_3.png" alt="">
+                <h2>Machha latte</h2>
+                <div class="specialorder-now">
+                    <h3>$11.40</h3>
+                    <button>Order now</button>
+                </div>
+            </div>
+
+            <div class="special-menu"><img src="assets\menu_item_6.png" alt="">
+                <h2>Hot chocolate</h2>
+                <div class="specialorder-now">
+                    <h3>$6.40</h3>
+                    <button>Order now</button>
+                </div>
+            </div>
+
+            <div class="special-menu"><img src="assets/menu_item_7.png" alt="">
+                <h2>Fruit Tea</h2>
+                <div class="specialorder-now">
+                    <h3>$8.60</h3>
+                    <button>Order now</button>
+                </div>
+            </div>
+
+            <div class="special-menu"><img src="assets\menu_item_5.png" alt="">
+                <h2>Cappacino</h2>
+                <div class="specialorder-now">
+                    <h3>$9.20</h3>
+                    <button>Order now</button>
+                </div>
+            </div>
+
+            <div class="special-menu"><img src="assets\menu_item_8.png" alt="">
+                <h2>Affogato</h2>
+                <div class="specialorder-now">
+                    <h3>$11.40</h3>
+                    <button>Order now</button>
+                </div>
+            </div>
+
+            <div class="special-menu"><img src="assets\menu_item_4.png" alt="">
+                <h2>Cold Brew</h2>
+                <div class="specialorder-now">
+                    <h3>$6.40</h3>
+                    <button>Order now</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <div class="aboutus-container">
+        <div class="img"><img src="https://ashisshrestha478.github.io/Coffee_Landing_Page/assets/about-img.jpeg" alt="">
+        </div>
+        <div class="aboutus">
+            <h1>About us</h1>
+            <h2>Slip into perfection</h2>
+            <p>Our Coffee World, where passion meets precision in every brew, bringing you a symphony of flavors and a
+                journey through the rice, aromatic realms of coffee craftsmanship.</p>
+            <button>Start your Order</button>
+        </div>
+    </div>
+    <footer class="footer-class">
+        <div class="bottom">
+            <div class="footerimg">
+                <img src="https://ashisshrestha478.github.io/Coffee_Landing_Page/assets/CoffeeLove.svg" alt="">
+                <h1>CoffeeLove</h1>
+            </div>
+            <div class="footer-nav">
+                <li><a href="">HOME</a></li>
+                <li><a href="">MENU</a></li>
+                <li><a href="">DELIVERY</a></li>
+                <li><a href="">LOCATIONS</a></li>
+            </div>
+        </div>
+        <div class="social-container">
+            <div class="social">
+                <img src="https://ashisshrestha478.github.io/Coffee_Landing_Page/assets/facebook_logo.png" alt="">
+                <img src="https://ashisshrestha478.github.io/Coffee_Landing_Page/assets/instagram-logo.png" alt="">
+                <img src="https://ashisshrestha478.github.io/Coffee_Landing_Page/assets/twitter-logo.png" alt="">
+
+            </div>
+            <div class="subscribe-class">
+                <h3>Newsletter</h3>
+                <input type="text" placeholder="Your Email"><button>subscribe</button>
+            </div>
+        </div>
+
+    </footer>
+</body>
+
+</html>

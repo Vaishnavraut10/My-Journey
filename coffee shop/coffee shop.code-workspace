@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "coffee shop",
+			"path": "."
+		},
+		{
+			"name": "coffee-landing-page-starter-kit",
+			"path": "../../Users/Admin/Downloads/coffee-landing-page-starter-kit"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "coffee shop"
+	}
+}
