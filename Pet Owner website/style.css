@@ -1,0 +1,407 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Roboto Slab", serif;
+}
+
+.header {
+   width: 100%;
+   height: 100vh;
+    background:rgba(190, 222, 228, 0.61);
+    position: relative;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.header-image img{
+    width: 450px;
+    height: 450px;
+    position: absolute;
+    top: 25%;
+    left: 5%;
+   
+}
+
+
+nav {
+    display: flex;
+    padding: 0 4%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.233);
+    
+}
+.logo{
+    display: flex;
+    align-items: center;
+    
+
+}
+
+nav img {
+    padding: 0 10px 0 0;
+    width: 62px;
+    margin: 8px 0 0 -30px;
+
+}
+
+ #logo-heading{
+ color: rgb(255, 255, 255);
+    font-size: 1.6em;
+   
+}
+
+.nav-links {
+   
+    flex: 1;
+    text-align: right;
+
+}
+
+.nav-links ul li{
+    display: inline-block;
+    list-style: none;
+    padding: 8px 12px;
+    position: relative;
+
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+}
+.nav-links ul li::after{
+    content: "";
+    background-color: rgb(125, 63, 148);
+    display: block;
+    margin:auto;
+    height: 3px;
+    width: 0%;
+    transition: all 0.7s ;
+}
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+.head-box{
+    width: auto;
+    position: absolute;
+    top: 30%;
+    right: 6%;
+    text-align: left;
+}
+.head-box h1{
+    width: 100%;
+    font-size: 4rem ;
+    color: rgb(127, 32, 171);
+}.head-box p{
+    font-size: 2rem;
+    color: rgb(65, 37, 132);
+
+}
+
+/* section2 */
+.appointment{
+    width: 100%;
+    height: 100%;  
+    margin: 8% 0 0 0 ;
+    overflow: hidden;
+    /* position: absolute; */
+    top: 0;
+
+}
+.img-box{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* position: ; */
+}
+.img-box img{
+    width: 240px;
+    height: 220px;  
+    margin: 40px 13px 0 13px;
+    border-radius: 15px;
+    transition: 1.8s ;
+
+}
+.img-box img:hover{
+ transform: scale(1.17);
+}
+.service h3{
+    display: inline-block;
+    margin:30px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+.appointment-text-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.appointment-text-button h1{
+    align-items: center;
+    text-align: center;
+    font-size: 3.8rem;
+    color: purple;
+    padding: 30px 0;
+}
+.appointment-text-button button{
+    padding: 14px 50px;
+    border: none;
+    color: white;
+    background: brown;
+    cursor:pointer;
+    border-radius: 12px;
+}
+/* section3 */
+.our-customers{
+    width: 100%;
+    height: 100%;
+    margin: 8% 0 0 0;
+    overflow: hidden;
+    position: relative;
+    background-color: bisque;
+
+}
+.customers-follow{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 50px 0;
+}
+.img-box2 img{
+    width: 250px;
+    height: 230px;
+    margin: 30px 9px;
+    border-radius: 12px;
+    /* flex-wrap: wrap; */
+    
+
+}
+.img-box2{
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+
+  
+   
+}
+.customers-follow h1{
+ font-size: 3.8rem;
+ color: purple;
+}
+.customers-follow button{
+    border: none;
+    padding:13px 50px;
+    color: white;
+    background: brown;
+    border-radius:12px;
+    cursor: pointer;
+    font-size:0.9rem;
+    margin: 15px 0;
+}
+#cross{
+    display: none;
+}
+#menu{
+   display: none; 
+}
+    
+
+
+
+@media(max-width:1248px){
+    .head-box h1{
+        font-size: 3.4rem;
+    }
+    .header-image img{
+        width: 400px;
+        height: 400px;
+    }
+}
+
+
+@media(max-width:1144px){
+    .head-box h1{
+        font-size: 2.9rem;
+
+    }
+    .header-image img{
+       
+        width: 380px;
+        height: 380px;
+    }
+} 
+
+
+@media(max-width:952px){
+    .header-image img{
+        width: 310px;
+        height: 310px;
+        margin: 30px 0 0 0 ;
+    }
+    .head-box h1{
+        margin: 20% 0 0px 38%;
+        font-size: 3rem;
+        width:90%
+        
+    }
+    .head-box p{
+        font-size: 1.9rem;
+        position: absolute;
+        top: 0;
+        left: 38%;
+        
+    }   
+    .appointment-text-button h1{
+        font-size: 3.4rem;
+    }
+    .customers-follow h1{
+        font-size: 3.4rem;
+    }
+    .img1 img{
+        margin: 5px;
+    }
+}
+
+
+@media  (max-width:733px) {
+   nav{
+    
+    flex-direction: column;
+    padding: 0px;
+    /* background: transparent; */
+    
+   }
+   nav img{
+    width: 50px;
+   
+   }
+   #logo-heading{
+    font-size: 1.5rem;
+   } 
+   .head-box  {
+transform: translate(-28% ,-10%);
+ width: 100%;
+ height: 100%;
+ 
+   }
+   .head-box p{
+    width: 100%;
+    margin-top: 35px ;
+    
+   }
+   .header-image img{
+    margin: 30% 0 0 30%;
+
+   }
+   .head-box h1{
+    margin-top: 80px;
+   }
+   .appointment-text-button h1{
+    font-size: 3rem;
+   }
+   .customers-follow h1{
+    font-size: 3rem;
+}
+
+  
+}
+@media(max-width:515px){
+.nav-links{
+    background: skyblue;
+    position:absolute;
+    
+    top: 0;
+    right:-170px ;
+    height: 100vh;
+    width: 170px;
+    text-align: left;
+    z-index: 1;
+    transition: 1s;
+    
+}
+.nav-links ul li{
+    display: block;
+    font-size: 1.3rem;
+}
+#cross{
+    display: block;
+    color: white;
+    margin: 17px;
+    font-size: 20px;
+    
+}
+#menu{
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+    font-size: 25px;
+   
+
+}
+.head-box h1{
+    font-size: 2.4rem;
+}
+.head-box{
+    margin-top: -30px;
+}
+.head-box p{
+    font-size: 1.5rem;
+    flex-wrap: wrap;
+}
+.header-image img{
+    width: 280px;
+    height: 280px;
+    transform:translate(-15% , 10%)
+    
+}
+.header{
+    height: 90vh;
+}
+.appointment-text-button h1{
+    font-size: 2.5rem;
+}
+.customers-follow h1{
+    font-size: 2.5rem;
+}
+.service h3{
+    font-size: 18px;
+    margin: 7px;
+}
+.appointment-text-button button{
+    margin-top: 10px;
+    padding: 10px 30px;
+}
+.customers-follow button{
+    padding: 10px 30px ;
+}
+.img {
+    margin: -7px;
+}
+
+}
+@media (max-width:355px){
+    .head-box h1{
+        font-size: 2rem;
+        margin-top:80px ;
+    }
+ .header-image img{
+    width: 250px ;
+    height: 250px;
+    margin: 120px 0 0 80px;
+ }
+ .head-box p{
+    margin-top: 40px;
+    font-size: 1.2rem;
+ }
+ .appointment-text-button h1{
+    font-size: 2rem;
+ }
+ .customers-follow h1{
+    font-size: 2rem;
+ }
+}

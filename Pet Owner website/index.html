@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>thepetowner.com</title>
+</head>
+
+<body>
+    <section class="header">
+        <div class="header-image">
+            <img id="d-c-img"
+                src="Assets/kisspng-dogcat-relationship-dogcat-relationship-pet-beech-house-vets-5b076ca25a0975.3141539615272132183688 (1).png"
+                alt="">
+
+        </div>
+
+        <nav>
+            <div class="logo">
+                <a href="#"><img src="vecteezy_cute-dog-illustration_34960779.png" alt="error"></a>
+                <h3 id="logo-heading">Pet Owner</h3>
+            </div>
+ 
+            <div class="nav-links" id="navlinks">
+                <i id="cross"  class="fa-regular fa-circle-xmark" onclick="hidemenu()"></i>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">About us</a></li>
+                </ul>
+                
+            </div>
+<i id="menu" class="fa-solid fa-bars" onclick="showmenu()"></i>
+        </nav>
+        <div class="head-box">
+            <h1>The Best Pet Groomer<br>in town</h1>
+            <br>
+            <p>For the pawfect feel and glow !</p>
+        </div>
+    </section> 
+ <!-- --------javascript for toggle menu------- -->
+    <script>
+   var navlinks= document.getElementById("navlinks");
+   function showmenu(){
+    navlinks.style.right = "0";
+   }
+   function hidemenu(){
+    navlinks.style.right="-170px";
+   }
+    </script>
+
+    <!-- section2 -->
+    <section class="appointment">
+        <div class="appointment-text-button">
+            <h1>Your Pet Deserve to be <br>Pampered!</h1>
+            <div class="service">
+                <h3>hair cutt</h3>
+                <h3>shampoo</h3>
+                <h3>hair style</h3>
+            </div>
+
+            <button>Get appointment</button>
+        </div>
+        <div class="img-box">
+            <div class="img"><img src="4.webp" alt=""></div>
+            <div class="img"><img src="2.webp" alt=""></div>
+            <div class="img"><img src="3.webp" alt=""></div>
+            <div class="img"><img src="1.jpg" alt=""></div>
+        </div>
+    </section>
+
+    <!-- section3 -->
+
+    <section class="our-customers">
+        <div class="customers-follow">
+            <h1>See our Glamorous <br>Customers</h1>
+            <button>Follow us</button>
+        </div>
+
+        <div class="img-box2">
+            <div class="img1">
+                <img src="funny-portrait-welsh-corgi-pembroke-600nw-1569883195.webp" alt="">
+            </div>
+            <div class="img1">
+                <img src="download (1).jpg" alt="">
+            </div>
+            <div class="img1">
+                <img src="pug-dog-isolated-white-background.jpg" alt="">
+            </div>
+            <div class="img1">
+                <img src="5.jpg" alt="">
+            </div>
+            <div class="img1">
+                <img src="istockphoto-1277453154-612x612.jpg" alt="">
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
