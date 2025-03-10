@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
+  >
+    <div class="container h-screen flex items-center justify-center flex-col">
+      <h1 class="Heading text-6xl mb-16 text-white-500 bold text-white !important">Text to Speech Converter</h1>
+      <textarea
+        class="w-1/2 textarea bg-transparent border-2 border-white-300 outline-none rounded-3xl pt-6 pl-4  text-xl text-white !important"
+        name="Text"
+        placeholder="Enter Text to Convert in Voice"
+        id=""
+        rows="12"
+      ></textarea>
+      <div class="down-cont flex justify-center items-center mt-8">
+        <select
+          class="pr-14 pl-14 pt-3 pb-3 mr-8 rounded-3xl   bg-white-500 border-2 border-white-300 outline-none"
+        ></select>
+
+        <div
+          class="btn flex justify-center items-center bg-green-500 p-2 pr-5 pl-5 rounded-3xl border-2 border-white-500"
+        >
+          <button class="cursor-pointer button "><img src="images\play.png" alt="" /></button>
+          
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
