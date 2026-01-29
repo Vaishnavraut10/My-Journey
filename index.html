@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PredictiveHealth AI — Machine Health</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1220;
+      --surface:#0e172a;
+      --muted:#8ea2b7;
+      --text:#eaf1fb;
+      --line:#152640;
+      --accent:#2e6ff2;
+      --accent-2:#22c55e;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --input:#0b1425;
+      --shadow:0 12px 28px rgba(0,0,0,.45);
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial; color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 80% -10%, rgba(46,111,242,.12), transparent 60%),
+        radial-gradient(1000px 600px at -10% 0%, rgba(34,197,94,.10), transparent 55%),
+        var(--bg);
+      line-height:1.45; min-height:100dvh;
+    }
+
+    /* A consistent full-width container with safe gutters */
+    .container{width:min(1600px, 100% - 48px); margin:0 auto}
+
+    /* Topbar */
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(13,21,36,.75);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+    .topbar-inner{display:flex;gap:18px;align-items:center; padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .badge{width:28px;height:28px;border-radius:9px;background:conic-gradient(from 210deg,var(--accent),#38bdf8,var(--accent));display:grid;place-items:center;box-shadow:0 6px 14px rgba(46,111,242,.35)}
+    .badge::after{content:"";width:10px;height:10px;border-radius:3px;background:#fff;opacity:.9}
+    .nav{margin-left:auto;display:flex;gap:24px;color:#b7c6da;font-weight:600}
+    .nav a{color:inherit;text-decoration:none}
+    .cta{margin-left:6px;padding:10px 14px;border-radius:10px;background:linear-gradient(180deg,#2e6ff2,#1f55db);border:1px solid #356ef6;color:#fff;text-decoration:none;font-weight:800;box-shadow:0 8px 18px rgba(46,111,242,.35)}
+
+    /* Main shell uses full page width with internal grids */
+    .shell{padding:34px 0 40px}
+
+    .breadcrumbs{color:#93a8bf;font-size:14px;margin-bottom:14px}
+    .breadcrumbs span{opacity:.8}
+    h1.title{margin:0 0 8px;font-size:44px;letter-spacing:.2px;font-weight:800}
+    .subtitle{color:#9cb0c8;max-width:90ch;margin:0 0 24px}
+
+    /* Primary grid: left content + right status */
+    .hero-grid{display:grid; grid-template-columns: 1.25fr .85fr; gap:22px; align-items:stretch}
+    @media (max-width: 980px){ .hero-grid{ grid-template-columns: 1fr; } }
+
+    .card{background:linear-gradient(180deg, rgba(46,111,242,.08), transparent 45%), var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 12px;font-size:18px}
+    .muted{color:var(--muted)}
+
+    /* Inner two-column grid for groups of cards */
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
+    @media (max-width:720px){.grid{grid-template-columns:1fr}}
+
+    /* Condition */
+    .cond .row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed #1b2e4e}
+    .cond .row:last-child{border-bottom:0}
+    .label{font-weight:700}
+    .value{font-variant-numeric:tabular-nums;color:#a7c5ff;font-weight:800}
+    .scale{display:flex;align-items:center;gap:10px;font-size:12px;color:#8aa1bc;margin-top:6px}
+    .tick{height:6px;flex:1;border-radius:10px;background:linear-gradient(90deg,#22c55e,#f59e0b,#ef4444)}
+
+    /* Right column */
+    .right{display:grid;gap:18px;align-content:start}
+    .dial{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;text-align:center;height:100%}
+    .chip{display:inline-flex;align-items:center;gap:8px;background:#133024;color:#9ae6b4;border:1px solid #1e3a2f;border-radius:999px;padding:6px 10px;font-size:12px}
+    .ring{width:170px;height:170px;border-radius:999px;margin:10px auto 14px;display:grid;place-items:center;background:conic-gradient(var(--accent) 330deg,#26334a 0);box-shadow:inset 0 0 30px rgba(46,111,242,.15),0 12px 28px rgba(0,0,0,.35)}
+    .hole{width:122px;height:122px;border-radius:999px;background:#0c1526;border:2px solid #1f2d44;display:grid;place-items:center;font-size:34px;font-weight:800}
+
+    .notice{padding:16px;border-radius:var(--radius);background:linear-gradient(180deg,#2e6ff2 0%,#1c4cc7 100%);color:#fff;border:1px solid #3a73ff;box-shadow:0 14px 24px rgba(46,111,242,.35)}
+    .notice h4{margin:0 0 8px}
+    .btn-white{display:inline-flex;align-items:center;gap:8px;font-weight:800;color:#0e1b2b;background:#fff;border:0;border-radius:10px;padding:10px 14px;cursor:pointer}
+
+    /* Maintenance + Observations */
+    .section{margin-top:18px}
+    .section h3{margin-bottom:12px}
+
+    .pair{display:grid;grid-template-columns:1fr 1fr auto;gap:14px;align-items:end}
+    .input{background:var(--input);border:1px solid var(--line);border-radius:12px;padding:14px;color:var(--text)}
+    .badge{background:#1a2a42;border:1px solid #2a4166;color:#9fb1c9;border-radius:10px;padding:4px 8px;font-size:12px}
+
+    .toggle{display:flex;align-items:center;justify-content:space-between;background:#0f1a2c;border:1px solid #1b2a43;padding:12px 14px;border-radius:12px;margin-bottom:10px}
+    .switch{width:46px;height:26px;border-radius:999px;background:#22324b;position:relative;border:1px solid #334a6e}
+    .switch::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:999px;background:#fff;transition:all .2s ease}
+    .switch.on{background:#2e6ff2}
+    .switch.on::after{left:23px}
+    .textarea{width:100%;min-height:110px;resize:vertical}
+
+    .actions{display:flex;gap:16px;margin-top:18px}
+    .btn{border:1px solid #295bd9;background:linear-gradient(180deg,#2e6ff2,#1e4fd9);color:#fff;font-weight:800;padding:14px 18px;border-radius:12px;box-shadow:0 10px 20px rgba(46,111,242,.35)}
+    .btn.secondary{background:#15243d;border-color:#2a3a58;color:#b8c6d8;box-shadow:none}
+
+    footer{color:#8193a8;padding:0 0 60px}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between}
+    .ok{color:#7fdca0}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand"><div class="badge" aria-hidden="true"></div> PredictiveHealth AI</div>
+      <nav class="nav">
+        <a href="#">Dashboard</a>
+        <a href="#">Machines</a>
+        <a href="#">Analytics</a>
+        <a href="#">Maintenance</a>
+        <a class="cta" href="#">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <div class="container">
+      <div class="breadcrumbs">Machines / Industrial Turbine X‑1 / <span>Health Input Form</span></div>
+      <h1 class="title">Machine Health Input</h1>
+      <p class="subtitle">Enter real‑time telemetry and observations to run failure prediction models.</p>
+
+      <div class="hero-grid">
+        <!-- Left side: cards in a two-column grid -->
+        <div>
+          <div class="grid">
+            <div class="card cond" style="grid-column:1 / -1">
+              <h3>Machine Condition</h3>
+              <div class="row">
+                <div>
+                  <div class="label">Internal Temperature (°C)</div>
+                  <div class="scale"><span>0°C</span><div class="tick"></div><span>150°C</span></div>
+                </div>
+                <div class="value">72.4</div>
+              </div>
+              <div class="row">
+                <div>
+                  <div class="label">Operational Pressure (PSI)</div>
+                  <div class="scale"><span>0</span><div class="tick"></div><span>1000</span></div>
+                </div>
+                <div class="value">420</div>
+              </div>
+              <div class="row">
+                <div>
+                  <div class="label">Vibration Amplitude (mm/s)</div>
+                  <div class="scale"><span>Stable</span><div class="tick"></div><span>Critical</span></div>
+                </div>
+                <div class="value">2.1</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid section">
+            <div class="card">
+              <h3>Maintenance & Usage</h3>
+              <div class="pair">
+                <label>
+                  <div class="label">Days Since Last Service</div>
+                  <input class="input" type="number" value="12" placeholder="12">
+                </label>
+                <label>
+                  <div class="label">Total Operational Hours</div>
+                  <input class="input" type="number" value="4820" placeholder="4820">
+                </label>
+                <span class="badge">HRS</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Operator Observations</h3>
+              <div class="toggle">
+                <div>
+                  <div class="label">Abnormal Noise Detected</div>
+                  <div class="muted">Rumbling or high‑pitched whining</div>
+                </div>
+                <div class="switch" aria-hidden="true"></div>
+              </div>
+              <div class="toggle">
+                <div>
+                  <div class="label">Lubricant Discoloration</div>
+                  <div class="muted">Visible dark particles or cloudiness</div>
+                </div>
+                <div class="switch on" aria-hidden="true"></div>
+              </div>
+              <label>
+                <div class="label" style="margin:6px 0 8px">Additional Remarks</div>
+                <textarea class="input textarea" placeholder="Describe any recent erratic behavior..."></textarea>
+              </label>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="btn">Analyze Health Model</button>
+            <button class="btn secondary">Reset</button>
+          </div>
+        </div>
+
+        <!-- Right side: status column -->
+        <div class="right">
+          <div class="card dial">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3 style="margin:0">Live AI Prediction</h3>
+              <span class="chip">Normal Range</span>
+            </div>
+            <div class="ring"><div class="hole">92%</div></div>
+            <div class="muted">Based on current telemetry, this machine is operating within Optimal Safety Limits.</div>
+          </div>
+          <div class="notice">
+            <h4>Need AI Assistance?</h4>
+            <p style="margin:0 0 12px;opacity:.95">Our model can auto‑fill data based on the last 24h IoT stream.</p>
+            <button class="btn-white">Sync From Sensors</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>System Status: <span class="ok">AI Model v2.4 Active</span></div>
+      <div class="muted">© 2026 PredictiveHealth AI</div>
+    </div>
+  </footer>
+</body>
+</html>
